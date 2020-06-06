@@ -9,3 +9,18 @@ var twoSum = function(nums, target) {
   }
   return output;
 };
+
+var formatString = function (myString, maxRepeat){
+  let prevLetter;
+  let letterCount = 0;
+  let newWord = "";
+    for (let letter of myString){
+      if (letter !== prevLetter) letterCount = 0;
+      letterCount++;
+      if (letterCount <= maxRepeat){
+        newWord += letter; 
+      }
+    prevLetter = letter;
+  }
+  return newWord;
+};
