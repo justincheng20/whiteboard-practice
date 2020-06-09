@@ -60,3 +60,23 @@ var longestCommonPrefix = function (strs) {
   };
   return prefix;
 };
+
+var isValid = function (s) {
+  let stack = [];
+  for (let i = 0; i < s.length; i++) {
+    let top = stack[stack.length - 1];
+    if (top === "(" && s[i] === ")") {
+      stack.pop();
+    }
+    else if (top === "{" && s[i] === "}") {
+      stack.pop();
+    }
+    else if (top === "[" && s[i] === "]") {
+      stack.pop();
+    }
+    else {
+      stack.push(s[i]);
+    }
+  };
+  return stack.length === 0;
+};
