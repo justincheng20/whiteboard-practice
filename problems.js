@@ -34,3 +34,14 @@ var isPalindrome = function(x) {
   };
   return true;
 };
+
+var reverse = function(x) {
+  let sign = x > 0 ? 1 : -1;
+  let numWord = x.toString();
+  let output = "";
+  for (let i = 0; i < numWord.length; i++){
+    output = numWord[i] + output;  
+  };
+  let y = sign * parseInt(output)
+  return (y < 2**31-1 && y > (-2)**31) ? y : 0;
+};
