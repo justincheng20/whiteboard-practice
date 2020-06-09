@@ -24,3 +24,13 @@ var formatString = function (myString, maxRepeat){
   }
   return newWord;
 };
+
+var isPalindrome = function(x) {
+  let numWord = x.toString();
+  for (let i = 0; i < numWord.length/2; i++){
+    if (numWord[i] !== numWord[numWord.length - i -1]){
+        return false;
+    };  
+  };
+  return true;
+};
