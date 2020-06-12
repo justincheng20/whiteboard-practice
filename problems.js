@@ -80,3 +80,37 @@ var isValid = function (s) {
   };
   return stack.length === 0;
 };
+
+var removeDuplicates = function(nums) {
+  let i = 0;
+    while (i < nums.length){
+        if (nums[i-1] === nums[i]){
+          nums.splice(i,1);  
+        } else {
+            i++;
+        }
+    };
+    return nums.length;
+};
+
+var removeElement = function(nums, val) {
+  let i = 0;
+   while (i < nums.length){
+       if (nums[i] === val){
+         nums.splice(i,1);  
+       } else {
+           i++;
+       }
+   };
+   return nums.length; 
+};
+
+var strStr = function(haystack, needle) {
+  if (needle.length === 0) return 0;
+  for (let i = 0; i < haystack.length - needle.length + 1; i++){
+      if (haystack.substring(i,i+needle.length) === needle){
+          return i;
+      };
+  }
+  return -1;
+};
