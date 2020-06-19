@@ -114,3 +114,18 @@ var strStr = function(haystack, needle) {
   }
   return -1;
 };
+
+function formatString(myString, maxRepeat){
+  let prevLetter;
+  let letterCount = 0;
+  let newWord = "";
+    for (let letter of myString){
+      if (letter !== prevLetter) letterCount = 0;
+      letterCount++;
+      if (letterCount <= maxRepeat){
+        newWord += letter; 
+      }
+    prevLetter = letter;
+  }
+  return newWord;
+};
