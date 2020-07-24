@@ -161,3 +161,34 @@ var uniquePaths = function(m, n) {
   }
   return arr[m - 1][n - 1];
 };
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isSymmetric = function(root) {
+  let nodeQueue = [root, root]
+  
+  while (nodeQueue.length !== 0){
+      let left = nodeQueue.shift();
+      let right = nodeQueue.shift();
+      if (left === null && right === null) continue;
+      if (left === null || right === null) return false;
+      if (left.val !== right.val){
+          return false;
+      }
+      nodeQueue.push(left.left);
+      nodeQueue.push(right.right);
+      nodeQueue.push(left.right);
+      nodeQueue.push(right.left);
+  }
+  return true;
+};
