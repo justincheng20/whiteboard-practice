@@ -192,3 +192,29 @@ var isSymmetric = function(root) {
   }
   return true;
 };
+
+/**
+ * @param {number} numRows
+ * @return {number[][]}
+ */
+var generate = function(numRows) {
+  let output = [];
+  for (let i = 0; i < numRows; i++){
+      let row = [];
+      for (let j = 0; j < i + 1; j++){
+          if (i === 0){
+              row.push(1);
+          } else {
+              row.push((output[i-1][j-1] || 0) + (output[i-1][j] || 0) )
+          }
+      }
+      output.push(row)
+  }
+  return output
+};
+
+// Loop though n rows.
+// have a nested loop.
+// Push the array in.
+// Each entry n should be calculated by previous rows, a[n[] + a[(n - 1)], with it 
+// being 0 if it is undefined.
