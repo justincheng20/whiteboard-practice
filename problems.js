@@ -218,3 +218,19 @@ var generate = function(numRows) {
 // Push the array in.
 // Each entry n should be calculated by previous rows, a[n[] + a[(n - 1)], with it 
 // being 0 if it is undefined.
+
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+  let max = 0;
+  let lowestBuy = prices[0];
+  let currentProfit = 0;
+  for (let i = 0 ; i < prices.length; i++){
+      lowestBuy = Math.min(lowestBuy, prices[i]);
+      currentProfit = prices[i] - lowestBuy;
+      max = Math.max(max,currentProfit);
+  }
+  return max;
+};
