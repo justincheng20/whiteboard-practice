@@ -271,3 +271,12 @@ var climbStairs = function(n) {
   }
   return num1 + num2;
 };
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+  let words = s.trim().split(" ");
+  return words[words.length - 1].length;
+};
