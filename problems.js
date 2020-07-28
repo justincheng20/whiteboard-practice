@@ -248,3 +248,26 @@ var maxProfit = function(prices) {
   }
   return profit;
 };
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function(n) {
+  // 1 => 1, 2 => 2, 3 => 3, 4 => 5
+  //
+  if (n === 1){
+      return 1;
+  }
+  if (n === 2){
+      return 2;
+  }
+  let num1 = 1;
+  let num2 = 2;
+  for (let i = 3; i < n; i++){
+      let temp = num1;
+      num1 = num2;
+      num2 = num2 + temp;
+  }
+  return num1 + num2;
+};
