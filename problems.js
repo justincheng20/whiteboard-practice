@@ -280,3 +280,34 @@ var lengthOfLastWord = function(s) {
   let words = s.trim().split(" ");
   return words[words.length - 1].length;
 };
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var sumOfLeftLeaves = function(root) {
+  let q = [root];
+  let sum = 0;
+  if (root === null) return sum;
+  while (q.length !== 0){
+      let node = q.shift();
+      if (node.left !== null){
+          q.push(node.left);
+          if (node.left.left === null && node.left.right === null){
+          sum += node.left.val;
+          }
+      }
+      if (node.right !== null){
+          q.push(node.right);
+      }
+  }
+  return sum;
+};
