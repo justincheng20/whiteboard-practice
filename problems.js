@@ -311,3 +311,17 @@ var sumOfLeftLeaves = function(root) {
   }
   return sum;
 };
+
+/**
+ * @param {string} J
+ * @param {string} S
+ * @return {number}
+ */
+var numJewelsInStones = function(J, S) {
+  let jSet = new Set(J.split(""));
+  let count = 0;
+  for (let letter of S){
+      if (jSet.has(letter)) count++;
+  }
+  return count;
+};
