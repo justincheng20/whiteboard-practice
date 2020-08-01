@@ -347,3 +347,44 @@ var searchInsert = function(nums, target) {
   }
   return start;
 };
+
+/**
+ * @param {number} x
+ * @param {number} y
+ * @return {number}
+ */
+var hammingDistance = function(x, y) {
+  let z = 1;
+  while (z <= x || z <= y){
+      z *= 2;
+  }
+  let xStr = "";
+  let yStr = "";
+  while (z >= 1){
+      if (x >= z){
+          xStr = "1" + xStr;
+          x -= z;
+      } else {
+          xStr = "0" + xStr;
+      }
+      if (y >= z){
+          yStr = "1" + yStr;
+          y -= z;
+      } else {
+          yStr = "0" + yStr;
+      }
+  z /= 2;
+  }
+  let count = 0;
+  for (let i = 0; i < xStr.length; i++){
+      if (xStr[i] !== yStr[i]) count++;
+  }
+  return count;
+};
+
+
+//Convert to binary. Then iterate and compare?
+// How to convert to binary?
+// Check length x and compare to 2^x.
+// If greater, push 1. if not, push 0.
+// Subtract by 2^x and keep going?
