@@ -388,3 +388,27 @@ var hammingDistance = function(x, y) {
 // Check length x and compare to 2^x.
 // If greater, push 1. if not, push 0.
 // Subtract by 2^x and keep going?
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMaxConsecutiveOnes = function(nums) {
+  let max = 0;
+  let currentMax = 0;
+  for (let i = 0; i <= nums.length; i++){
+      if (nums[i] === 1){
+          currentMax++;
+      } else {
+          max = Math.max(max, currentMax);
+          currentMax = 0;
+      }
+  }
+  return max;
+};
+
+// Iterate!
+// Keep track of current max
+// When we hit a 1, increment local max.
+// When we hit a zero, compare local and current max.
+// REset local max
