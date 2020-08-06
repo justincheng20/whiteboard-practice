@@ -412,3 +412,25 @@ var findMaxConsecutiveOnes = function(nums) {
 // When we hit a 1, increment local max.
 // When we hit a zero, compare local and current max.
 // REset local max
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+  let words = s.split(" ");
+  let reversedWords = words.map(word => {
+      let newWord = "";
+      for (let i = 0; i < word.length; i++){
+          newWord = word[i] + newWord;
+      }
+      return newWord;
+  })
+  let newSentence = reversedWords.join(" ");
+  return newSentence.trim();
+};
+
+// Split by space
+// Reverse each word
+// Join them together again
+// remove extra whitespace
