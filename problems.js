@@ -434,3 +434,25 @@ var reverseWords = function(s) {
 // Reverse each word
 // Join them together again
 // remove extra whitespace
+
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersection = function(nums1, nums2) {
+  let output = [];
+  let set1 = new Set();
+  let set2 = new Set();
+  nums1.forEach(function(num){
+      set1.add(num);
+  })
+  
+  nums2.forEach(function(num){
+      set2.add(num);
+  })
+  set2.forEach(function(num){
+      if (set1.has(num)) output.push(num);
+  })
+  return output;
+};
