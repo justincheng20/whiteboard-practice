@@ -456,3 +456,32 @@ var intersection = function(nums1, nums2) {
   })
   return output;
 };
+
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersect = function(nums1, nums2) {
+  let obj1 = freqCounter(nums1);
+  let obj2 = freqCounter(nums2);
+  let output = [];
+  for (num in obj1){
+      if (num in obj2){
+          let count = Math.min(obj1[num],obj2[num]);
+          for (let i = 0; i< count; i++){
+              output.push(num);
+          }
+      }
+  }
+  return output;
+};
+
+function freqCounter(arr){
+  let counter = [];
+  arr.forEach(function(ele){
+      let count = counter[ele] || 0;
+      counter[ele] = count + 1;
+  });
+  return counter;
+}
