@@ -485,3 +485,13 @@ function freqCounter(arr){
   });
   return counter;
 }
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var countSegments = function(s) {
+  let arr = s.split(" ");
+  let output = arr.filter(word => word.trim().length !== 0);
+  return output.length;
+};
