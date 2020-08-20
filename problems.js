@@ -511,3 +511,31 @@ var deleteNode = function(node) {
   node.val = node.next.val;
   node.next = node.next.next;
 };
+
+/**
+ * @param {string} word
+ * @return {boolean}
+ */
+var detectCapitalUse = function(word) {
+  if (word.length < 2) return true;
+  let isCapital1 = word[0] === word[0].toUpperCase();
+  let isCapital2 = word[1] === word[1].toUpperCase();
+  if (isCapital1 && isCapital2){
+      for (let i = 2; i < word.length; i++){
+          if (word[i] !== word[i].toUpperCase()) return false;
+      }
+  } else if (!isCapital1 && !isCapital2){
+      for (let i = 2; i < word.length; i++){
+          if (word[i] === word[i].toUpperCase()) return false;
+      }
+  } else if (isCapital1 && !isCapital2){
+      for (let i = 2; i < word.length; i++){
+          if (word[i] === word[i].toUpperCase()) return false;
+      }
+  } else {
+      return false;
+  }
+  return true;
+};
+
+// How to check? See if capital but converting to lower case and coverting
