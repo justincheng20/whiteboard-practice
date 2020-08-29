@@ -608,3 +608,28 @@ var invertTree = function(root) {
   
   return helper(root)
 };
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var findDisappearedNumbers = function(nums) {
+  let arr = [];
+  for (let i = 1; i <= nums.length; i++){
+      arr.push(i);
+  }
+  for (let i = 0; i < nums.length; i++){
+      arr[nums[i] - 1] = 0;
+  }
+  output = arr.filter(num => num !== 0);
+  return output;
+};
+
+
+// It always ranges from 1 to n.
+// Use a set with numbers from 1 to n?
+// If the number appears, remove from set.
+// Convert leftover set numbers into an array.
+// Or.... have an array of 1 to n.
+// When it appears, convert number to 0.
+// Filter out the zeros.
