@@ -633,3 +633,12 @@ var findDisappearedNumbers = function(nums) {
 // Or.... have an array of 1 to n.
 // When it appears, convert number to 0.
 // Filter out the zeros.
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+  let words = s.trim().split(" ");
+  return words[words.length - 1].length;
+};
