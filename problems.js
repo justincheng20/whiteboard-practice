@@ -642,3 +642,13 @@ var lengthOfLastWord = function(s) {
   let words = s.trim().split(" ");
   return words[words.length - 1].length;
 };
+
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var canWinNim = function(n) {
+  return n%4 !== 0; 
+};
+
+// We can win game if: 1 + 4n?
