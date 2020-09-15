@@ -652,3 +652,14 @@ var canWinNim = function(n) {
 };
 
 // We can win game if: 1 + 4n?
+
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
+var isPerfectSquare = function(num) {
+  for (let i = 0; i <= num; i ++){
+      if (i * i === num) return true;
+  }
+  return false;
+};
